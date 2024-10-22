@@ -3,9 +3,9 @@ const student = {
   firstName: 'Liam',
   lastName: 'Nguyen',
   age: 23,
-  livesInIrvine: true,
-  previousOccupation: 'Moisture Farmer',
 };
+student.livesInIrvine = true;
+student.previousOccupation = 'Moisture Farmer';
 const fullName = `${student.firstName} ${student.lastName}`;
 console.log('value of fullName: ', fullName);
 console.log('value of student.livesInIrvine ', student.livesInIrvine);

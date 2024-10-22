@@ -10,9 +10,9 @@ const student: StudentProps = {
   firstName: 'Liam',
   lastName: 'Nguyen',
   age: 23,
-  livesInIrvine: true,
-  previousOccupation: 'Moisture Farmer',
 };
+student.livesInIrvine = true;
+student.previousOccupation = 'Moisture Farmer';
 
 const fullName: string = `${student.firstName} ${student.lastName}`;
 console.log('value of fullName: ', fullName);
