@@ -5,8 +5,10 @@
 Answer the following questions in the provided markdown file before turning in this exercise:
 
 - What is the syntax for writing a template literal?
+  `string text inside`
 
 - What is "string interpolation"?
+  when we are substituting part of a string with an embedded expression
 
 ## Notes
 
