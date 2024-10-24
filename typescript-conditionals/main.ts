@@ -8,22 +8,22 @@
             introduceWarnerBro,
             recommendMovie
  */
-function isUnderFive(number: number): string {
+function isUnderFive(number: number): boolean {
   if (number < 5) {
-    return 'True';
+    return true;
   } else {
-    return 'False';
+    return false;
   }
 }
 console.log('4', isUnderFive(4));
 console.log('10', isUnderFive(10));
 console.log('5', isUnderFive(5));
 
-function isEven(number: number): string {
+function isEven(number: number): boolean {
   if (number % 2 === 0) {
-    return 'True';
+    return true;
   } else {
-    return 'False';
+    return false;
   }
 }
 console.log('4', isEven(4));
@@ -79,7 +79,7 @@ console.log('isOldEnoughToDrive', isOldEnoughToDrive(homer));
 function categorizeAcidity(ph: number): string {
   if (ph === 7) {
     return 'Neutral';
-  } else if (ph < 7) {
+  } else if (ph < 7 && ph > 0) {
     return 'Acid';
   } else {
     return 'invalid pH level';
