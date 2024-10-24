@@ -39,7 +39,7 @@ const css = {
 };
 library.push(js);
 library.push(css);
-library.splice(0, 1);
+library.splice(1, 1);
 console.log('library', library);
 
 const fullName: string = 'Liam Nguyen ';
