@@ -31,9 +31,9 @@ console.log('10', isEven(10));
 console.log('5', isEven(5));
 function startsWithJ(string) {
   if (string[0] === 'J' || string[0] === 'j') {
-    return 'True';
+    return true;
   } else {
-    return 'False';
+    return false;
   }
 }
 console.log('Javascript', startsWithJ('JavaScript'));
@@ -48,9 +48,9 @@ const bart = {
 };
 function isOldEnoughToDrink(person) {
   if (person.age < 21) {
-    return 'False';
+    return true;
   } else {
-    return 'True ';
+    return false;
   }
 }
 console.log('isOldEnoughToDrink', isOldEnoughToDrink(bart));
@@ -60,17 +60,19 @@ const homer = {
 };
 function isOldEnoughToDrive(person) {
   if (person.age > 16) {
-    return 'True';
+    return true;
   } else {
-    return 'False';
+    return false;
   }
 }
 console.log('isOldEnoughToDrive', isOldEnoughToDrive(homer));
 function categorizeAcidity(ph) {
   if (ph === 7) {
     return 'Neutral';
-  } else if (ph < 7 && ph > 0) {
+  } else if (ph < 7 && ph >= 0) {
     return 'Acid';
+  } else if (ph > 7 && ph < 14) {
+    return 'base';
   } else {
     return 'invalid pH level';
   }
@@ -108,6 +110,14 @@ function recommendMovie(genre) {
       return 'Die hard';
     case 'comedy':
       return 'The big Lebowski';
+    case 'horror':
+      return 'The Exorcist';
+    case 'drama':
+      return 'Forrest Gump';
+    case 'musical':
+      return 'The Sound of Music';
+    case 'sci-fi':
+      return 'Blade Runner';
     default:
       return 'Genre not recognized. Choose between action, comedy, horror, drama, musical, or sci-fi';
   }

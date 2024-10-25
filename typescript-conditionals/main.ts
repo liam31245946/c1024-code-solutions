@@ -30,11 +30,11 @@ console.log('4', isEven(4));
 console.log('10', isEven(10));
 console.log('5', isEven(5));
 
-function startsWithJ(string: any): any {
+function startsWithJ(string: string): boolean {
   if (string[0] === 'J' || string[0] === 'j') {
-    return 'True';
+    return true;
   } else {
-    return 'False';
+    return false;
   }
 }
 
@@ -53,11 +53,11 @@ const bart = {
   name: 'Bartholomew JoJo Simpson',
   age: 10,
 };
-function isOldEnoughToDrink(person: Person): string {
+function isOldEnoughToDrink(person: Person): boolean {
   if (person.age < 21) {
-    return 'False';
+    return true;
   } else {
-    return 'True ';
+    return false;
   }
 }
 console.log('isOldEnoughToDrink', isOldEnoughToDrink(bart));
@@ -67,11 +67,11 @@ const homer = {
   age: 39,
 };
 
-function isOldEnoughToDrive(person: Person): string {
+function isOldEnoughToDrive(person: Person): boolean {
   if (person.age > 16) {
-    return 'True';
+    return true;
   } else {
-    return 'False';
+    return false;
   }
 }
 console.log('isOldEnoughToDrive', isOldEnoughToDrive(homer));
@@ -79,8 +79,10 @@ console.log('isOldEnoughToDrive', isOldEnoughToDrive(homer));
 function categorizeAcidity(ph: number): string {
   if (ph === 7) {
     return 'Neutral';
-  } else if (ph < 7 && ph > 0) {
+  } else if (ph < 7 && ph >= 0) {
     return 'Acid';
+  } else if (ph > 7 && ph < 14) {
+    return 'base';
   } else {
     return 'invalid pH level';
   }
@@ -121,6 +123,14 @@ function recommendMovie(genre: string): string {
       return 'Die hard';
     case 'comedy':
       return 'The big Lebowski';
+    case 'horror':
+      return 'The Exorcist';
+    case 'drama':
+      return 'Forrest Gump';
+    case 'musical':
+      return 'The Sound of Music';
+    case 'sci-fi':
+      return 'Blade Runner';
     default:
       return 'Genre not recognized. Choose between action, comedy, horror, drama, musical, or sci-fi';
   }
