@@ -65,3 +65,4 @@ const employeeValues = Object.values(employee);
 console.log('EmployeeValues ', employeeValues);
 const employeesPairs = Object.entries(employee);
 console.log('EmployeePairs ', employeesPairs);
+console.log('Do not mind this message');
