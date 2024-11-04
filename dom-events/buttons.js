@@ -3,7 +3,6 @@ const $click = document.querySelector('.click-button');
 if (!$click) {
   throw new Error('Something is wrong!!!');
 }
-$click.addEventListener('click', () => {});
 function handleClick(event) {
   console.log('button clicked');
   console.log('event', event);
@@ -14,7 +13,6 @@ const $hover = document.querySelector('.hover-button');
 if (!$hover) {
   throw new Error('Something is wrong');
 }
-$hover.addEventListener('hover', () => {});
 function handleMouseover(event) {
   console.log('button hovered');
   console.log(event);
@@ -23,7 +21,6 @@ function handleMouseover(event) {
 $hover.addEventListener('hover', handleMouseover);
 const $double = document.querySelector('.double-click-button');
 if (!$double) throw new Error('Something is wrong');
-$double.addEventListener('click', () => {});
 function handleDoubleClick(event) {
   console.log('hover hovered');
   console.log(event);
