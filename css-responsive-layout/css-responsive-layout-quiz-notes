@@ -5,22 +5,22 @@
 Answer the following questions in the provided markdown file before turning in this exercise:
 
 - What is a **breakpoint** in responsive Web design?
-
+  it is a specific screen width at which the layout of a web page changes to improve usability and readability on different devices
 - What is the advantage of using a percentage (_e.g._ `50%`) width instead of a fixed (_e.g._ `px`) width for a "column" class in a responsive layout?
-
+  it allows the column to adjust proportionally to the screen size, making the layout flexible and responsive
 - If you introduce CSS rules for a smaller `min-width` _after_ the styles for a larger `min-width` in your style sheet, the CSS rules for the **smaller** `min-width` will "win". Why is that?
+  it happened because of cascading
 
 ## Notes
 
 All student notes should be written here.
-
 
 How to write `Code Examples` in markdown
 
 for JS:
 
 ```javascript
-const data = "Howdy";
+const data = 'Howdy';
 ```
 
 for HTML:
