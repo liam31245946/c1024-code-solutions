@@ -5,7 +5,7 @@ interface Todo {
   isCompleted: boolean;
 }
 
-let todos: Todo[] = [];
+let todos: Todo[] = readTodo();
 
 function writeTodos(): void {
   const todosJSON = JSON.stringify(todos);
@@ -15,8 +15,10 @@ console.log('writeTodos', writeTodos);
 
 const readTodoJason = localStorage.getItem('todos-storage');
 
-if (readTodoJason) {
-  todos = JSON.parse(readTodoJason);
-} else {
-  todos = [];
+function readTodo(): Todo[] {
+  if (readTodoJason) {
+    return JSON.parse(readTodoJason);
+  } else {
+    return [];
+  }
 }
