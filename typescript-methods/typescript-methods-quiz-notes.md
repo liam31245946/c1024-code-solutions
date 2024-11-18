@@ -14,7 +14,7 @@ Answer the following questions in the provided markdown file before turning in t
 - How do you remove the last element from an array?
   by using pop()
 - How do you round a number down to the nearest integer?
-  by using math.round()
+  by using math.round() correct is math.floor()
 - How do you generate a random number?
   by using math.random()
 - How do you delete an element from an array?
