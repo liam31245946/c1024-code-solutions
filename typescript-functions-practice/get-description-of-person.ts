@@ -2,9 +2,9 @@
 interface Person {
   name: string;
   occupation: string;
-  birthplace: string;
+  birthPlace: string;
 }
 
 function getDescriptionOfPerson(person: Person): string {
-  return `${person.name} is ${person.occupation} from ${person.birthplace}.`;
+  return `${person.name} is a ${person.occupation} from ${person.birthPlace}.`;
 }
