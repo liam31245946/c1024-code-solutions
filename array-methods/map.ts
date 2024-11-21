@@ -4,11 +4,8 @@ const sale = prices.map((num) => ({
   price: num,
   salePrice: num / 2,
 }));
-console.log(sale);
+console.log('sale', sale);
 
-const format = prices.map((num) => ({
-  price: num.toFixed(2),
-  salePrice: (num / 2).toFixed(2),
-}));
+const format = prices.map((num) => [num.toFixed(2), (num / 2).toFixed(2)]);
 
-console.log(format);
+console.log('format', format);
