@@ -1,8 +1,8 @@
-import BottomTextSection from './BottomTextSection';
-import MidTextSection from './MidTextSection';
-import TitleSection from './TitleSection';
+import { BottomTextSection } from './BottomTextSection';
+import { MidTextSection } from './MidTextSection';
+import { TitleSection } from './TitleSection';
 
-export default function Body() {
+export function Body() {
   return (
     <>
       <TitleSection />

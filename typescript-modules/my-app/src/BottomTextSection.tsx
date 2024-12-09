@@ -1,4 +1,4 @@
-export default function BottomTextSection() {
+export function BottomTextSection() {
   return (
     <section>
       <p>

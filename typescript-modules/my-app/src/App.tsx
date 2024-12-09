@@ -1,8 +1,8 @@
-import Header from './Header';
-import Body from './Body';
-import Footer from './Footer';
+import { Header } from './Header';
+import { Body } from './Body';
+import { Footer } from './Footer';
 
-export default function App() {
+export function App() {
   return (
     <>
       <Header />
