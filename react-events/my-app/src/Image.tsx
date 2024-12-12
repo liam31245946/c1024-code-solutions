@@ -1,8 +1,8 @@
 import './Image.css';
 
-type Props = {
+type Prop = {
   src: string;
 };
-export function Image({ src }: Props) {
+export function Image({ src }: Prop) {
   return <img src={src} />;
 }

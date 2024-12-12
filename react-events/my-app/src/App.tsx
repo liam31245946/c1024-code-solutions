@@ -16,32 +16,15 @@ const descriptions = [
 
 export function App() {
   const [index, setIndex] = useState(0);
-  function handleCaptionClick() {
+  function handleClick() {
     if (index >= captions.length - 1) {
       setIndex(0);
     } else {
       setIndex(index + 1);
     }
   }
-  function handleDescriptionClick() {
-    if (index >= descriptions.length - 1) {
-      setIndex(0);
-    } else {
-      setIndex(index + 1);
-    }
-  }
-
-  function handleImageclick() {
-    if (index >= srcs.length - 1) {
-      setIndex(0);
-    } else {
-      setIndex(index + 1);
-    }
-  }
   function handleNextClick() {
-    handleCaptionClick();
-    handleDescriptionClick();
-    handleImageclick();
+    handleClick();
   }
   return (
     <>
