@@ -9,7 +9,9 @@ const pokedex = [
 ];
 
 export default function App() {
-  const listItems = pokedex.map((pokemon) => <li>{pokemon.name}</li>);
+  const listItems = pokedex.map((pokemon) => (
+    <li key={pokemon.name}>{pokemon.name}</li>
+  ));
 
   return <ul>{listItems}</ul>;
 }
