@@ -1,8 +1,12 @@
 import { useState } from 'react';
-import { FaCheck } from 'react-icons/fa';
+import { FaCheck, FaTimes } from 'react-icons/fa';
 
 export function Foo() {
   return <FaCheck />;
+}
+
+export function foo1() {
+  return <FaTimes />;
 }
 
 type InputProps = {
@@ -16,13 +20,23 @@ export function Input({ label }: InputProps) {
     <>
       <label>
         {label}
-        <input value={password} onChange={(e) => setPassword(e.target.value)} />
+        <input
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
       </label>
 
       {password.length === 0 ? (
-        <p className="p-1 text-red-700">Password is required.</p>
+        <p className="p-1 text-red-700">
+          Password is required.
+          <FaTimes color="red" />
+        </p>
       ) : password.length < 8 ? (
-        <p className="p-1 text-red-700">Your password is too short.</p>
+        <p className="p-1 text-red-700">
+          Your password is too short.
+          <FaTimes color="red" />
+        </p>
       ) : password.length > 8 ? (
         <p className="p-1 text-green-700">
           <FaCheck color="green" />
