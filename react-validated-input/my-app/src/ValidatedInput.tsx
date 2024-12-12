@@ -21,9 +21,9 @@ export function Input({ label }: InputProps) {
 
       {password.length === 0 ? (
         <p className="p-1 text-red-700">Password is required.</p>
-      ) : password.length < 4 ? (
+      ) : password.length < 8 ? (
         <p className="p-1 text-red-700">Your password is too short.</p>
-      ) : password.length > 4 ? (
+      ) : password.length > 8 ? (
         <p className="p-1 text-green-700">
           <FaCheck color="green" />
         </p>
