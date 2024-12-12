@@ -1,9 +1,8 @@
 import './Image.css';
 
 type Props = {
-  srcs: string[];
-  index: number;
+  src: string;
 };
-export function Image({ srcs, index }: Props) {
-  return <img src={srcs[index]} />;
+export function Image({ src }: Props) {
+  return <img src={src} />;
 }

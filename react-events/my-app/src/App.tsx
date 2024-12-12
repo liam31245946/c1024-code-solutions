@@ -15,29 +15,27 @@ const descriptions = [
 ];
 
 export function App() {
-  const [captionIndex, setCaptionIndex] = useState(0);
+  const [index, setIndex] = useState(0);
   function handleCaptionClick() {
-    if (captionIndex >= captions.length - 1) {
-      setCaptionIndex(0);
+    if (index >= captions.length - 1) {
+      setIndex(0);
     } else {
-      setCaptionIndex(captionIndex + 1);
+      setIndex(index + 1);
     }
   }
-  const [descriptionIndex, setDescriptionIndex] = useState(0);
   function handleDescriptionClick() {
-    if (descriptionIndex >= descriptions.length - 1) {
-      setDescriptionIndex(0);
+    if (index >= descriptions.length - 1) {
+      setIndex(0);
     } else {
-      setDescriptionIndex(descriptionIndex + 1);
+      setIndex(index + 1);
     }
   }
 
-  const [imageIndex, setImageIndex] = useState(0);
   function handleImageclick() {
-    if (imageIndex >= srcs.length - 1) {
-      setImageIndex(0);
+    if (index >= srcs.length - 1) {
+      setIndex(0);
     } else {
-      setImageIndex(imageIndex + 1);
+      setIndex(index + 1);
     }
   }
   function handleNextClick() {
@@ -48,9 +46,9 @@ export function App() {
   return (
     <>
       <Header text="React Image Bank" />
-      <Image srcs={srcs} index={imageIndex} />
-      <Caption captions={captions} index={captionIndex} />
-      <Description texts={descriptions} index={descriptionIndex} />
+      <Image src={srcs[index]} />
+      <Caption captions={captions[index]} />
+      <Description texts={descriptions[index]} />
       <Button label="Click for Next Image" onLabelClick={handleNextClick} />
     </>
   );

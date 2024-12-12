@@ -1,7 +1,6 @@
 type Props = {
-  texts: string[];
-  index: number;
+  texts: string;
 };
-export function Description({ texts, index }: Props) {
-  return <p>{texts[index]}</p>;
+export function Description({ texts }: Props) {
+  return <p>{texts}</p>;
 }
