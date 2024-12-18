@@ -5,7 +5,7 @@
 Answer the following questions in the provided markdown file before turning in this exercise:
 
 - How do controlled components differ from uncontrolled components?
-
+  Controlled components rely on React state to manage input values, while uncontrolled components manage their state internally via the DOM.
 - What are some advantages of using uncontrolled components?
 
 - What are some advantages of using controlled components?
