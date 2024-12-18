@@ -3,40 +3,13 @@ import { PrevButton } from './PrevButton';
 import { Dot } from './Dot';
 import { ImageCard } from './ImageCard';
 import { useState, useEffect } from 'react';
+import { Image } from './App';
 
-export type Image = {
-  src: string;
-  alt: string;
+type Prop = {
+  images: Image[];
 };
 
-const images: Image[] = [
-  {
-    src: '/images/fushiguro.webp',
-    alt: 'Megumi Fushiguro',
-  },
-  {
-    src: '/images/inumaki.webp',
-    alt: 'Toge Inumaki',
-  },
-  {
-    src: '/images/itadori.webp',
-    alt: 'Yuji Itadori',
-  },
-  {
-    src: '/images/kugisaki.webp',
-    alt: 'Nobara Kugisaki',
-  },
-  {
-    src: '/images/panda.webp',
-    alt: 'Panda',
-  },
-  {
-    src: '/images/zen-in.webp',
-    alt: "Maki Zen'in",
-  },
-];
-
-export function Carousel() {
+export function Carousel({ images }: Prop) {
   const [index, setIndex] = useState(0);
 
   useEffect(() => {

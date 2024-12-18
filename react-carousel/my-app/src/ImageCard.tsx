@@ -1,4 +1,4 @@
-import { Image } from './Carousel ';
+import { Image } from './App';
 
 type Props = {
   image: Image;
