@@ -39,9 +39,12 @@ export function Dashboard() {
       <hr className="py-1" />
       <div className="flex flex-wrap">
         {items?.map((item) => (
-          <div key={item.itemId} className="w-full md:w-1/2 lg:w-1/3 pr-4 pl-4">
+          <Link
+            to={`/details/ ${item.itemId}`}
+            key={item.itemId}
+            className="w-full md:w-1/2 lg:w-1/3 pr-4 pl-4">
             <ItemCard item={item} />
-          </div>
+          </Link>
         ))}
       </div>
     </div>
