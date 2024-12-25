@@ -1,0 +1,35 @@
+/* Define button colors */
+.blue {
+  background-color: blue;
+  color: white;
+}
+
+.darkblue {
+  background-color: darkblue;
+  color: white;
+}
+
+.lightblue {
+  background-color: lightblue;
+  color: white;
+}
+
+.lightred {
+  background-color: lightcoral;
+  color: white;
+}
+
+.orange {
+  background-color: orange;
+  color: black;
+}
+
+.yellow {
+  background-color: yellow;
+  color: black;
+}
+
+.white {
+  background-color: white;
+  color: black;
+}
