@@ -1,0 +1,22 @@
+.stopwatch {
+  width: 240px;
+  margin: 2rem auto; /* Center the stopwatch horizontally */
+  text-align: center;
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  align-items: center; /* Center items horizontally */
+  gap: 1rem; /* Add spacing between items */
+}
+
+.stopwatch .controls {
+  display: flex;
+  justify-content: space-between; /* Spread buttons evenly */
+  width: 100%; /* Make the container the same width as stopwatch */
+}
+
+.stopwatch .controls button {
+  cursor: pointer;
+  font-size: 1.5rem;
+  border: none;
+  background: none;
+}
