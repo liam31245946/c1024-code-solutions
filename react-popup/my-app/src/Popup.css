@@ -1,0 +1,10 @@
+.popup-menu {
+  border: 1px solid #ccc; /* Adds a shaded border */
+  padding: 10px;
+  list-style-type: none; /* Removes bullets from list items */
+  background-color: #f9f9f9; /* Light background color */
+}
+
+.popup-menu li {
+  margin: 5px 0;
+}
