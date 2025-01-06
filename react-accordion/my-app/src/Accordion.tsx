@@ -1,37 +1,33 @@
-import React, { useState } from 'react';
+import { TopicCard } from './TopicCard';
+import { useState } from 'react';
+import './TopicCard.css';
 
-// Type for accordion items
-type AccordionItem = {
+type Topic = {
   id: number;
   title: string;
   content: string;
 };
 
-interface AccordionProps {
-  items: AccordionItem[];
-}
+type Props = {
+  topics: Topic[];
+};
 
-export function Accordion({ items }: AccordionProps) {
-  const [activeIndex, setActiveIndex] = useState(-1);
+export function Accordion({ topics }: Props) {
+  const [activeTopicId, setActiveTopicId] = useState<number | null>(null);
 
-  const handleToggle = (index: number) => {
-    setActiveIndex(activeIndex === index ? -1 : index); // Toggle between open/close
+  const handleToggle = (id: number) => {
+    setActiveTopicId((prev) => (prev === id ? null : id));
   };
 
   return (
-    <div className="accordion">
-      {items.map((item, index) => (
-        <div key={item.id} className="accordion-item">
-          <div className="accordion-header" onClick={() => handleToggle(index)}>
-            <h3>{item.title}</h3>
-          </div>
-
-          {activeIndex === index && (
-            <div className="accordion-content">
-              <p>{item.content}</p>
-            </div>
-          )}
-        </div>
+    <div className="accordion-container">
+      {topics.map((topic) => (
+        <TopicCard
+          key={topic.id}
+          topic={topic}
+          isActive={topic.id === activeTopicId}
+          onToggle={() => handleToggle(topic.id)}
+        />
       ))}
     </div>
   );
