@@ -1,7 +1,7 @@
-import { Search } from './Search';
-import './index.css';
+import React from 'react';
+import { SearchableList } from './SearchableList';
 
-const quotes = [
+const quotes: string[] = [
   'Yer a wizard Harry.',
   "I hope you're pleased with yourselves.",
   'It does not do well to dwell on dreams and forget to live.',
@@ -17,5 +17,10 @@ const quotes = [
 ];
 
 export default function App() {
-  return <Search quotes={quotes} />;
+  return (
+    <div>
+      <h1>Searchable List</h1>
+      <SearchableList list={quotes} />
+    </div>
+  );
 }
