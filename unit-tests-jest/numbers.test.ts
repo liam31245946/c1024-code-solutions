@@ -10,7 +10,7 @@ describe('eventNumber function', () => {
 
 describe(' toDollars function', () => {
   test('return number in format dollar and cent', () => {
-    expect(toDollars(100).match('$100.00'));
+    expect(toDollars(12.34).match('$12.34'));
   });
 });
 
