@@ -1,0 +1,29 @@
+/* Container for the SearchBar */
+.search-bar {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+/* Input field styling */
+.search-bar input {
+  padding: 8px;
+  width: 100%;
+}
+
+/* Magnifying glass image */
+.search-bar img {
+  width: 20px;
+  margin-right: 8px;
+}
+
+/* Items list */
+.items-list li {
+  margin-bottom: 0.5rem;
+}
+
+/* Message when no items match */
+.no-items {
+  color: #555;
+  font-style: italic;
+}
