@@ -4,8 +4,6 @@ import pg from 'pg';
 
 const app = express();
 
-app.use(errorMiddleware);
-
 const db = new pg.Pool({
   connectionString: 'postgres://dev:dev@localhost/pagila',
   ssl: {
@@ -41,6 +39,7 @@ app.get('/api/films/:filmId', async (req, res, next) => {
         "title",
         "filmId
       from "films"
+      where "filmId" = $1
     `;
     const params = [filmId];
     const result = await db.query(sql, params);
@@ -57,17 +56,22 @@ app.get('/api/films/:filmId', async (req, res, next) => {
 app.put('/api/films/:filmId', async (req, res, next) => {
   try {
     const { filmId } = req.params;
+    const { title } = req.query;
     if (filmId === undefined) {
       throw new ClientError(400, 'filmId is required');
     }
+
+    if (!title) {
+      throw new ClientError(400, 'title is required');
+    }
+
     const sql = `
-      select
-        "title",
-        "filmId"
-      from "films"
-      where "filmId" = $1;
+       update "films"
+       set "title" = $1
+       where "filmId" = $2
+       returning *;
     `;
-    const params = [filmId];
+    const params = [title, filmId];
     const result = await db.query(sql, params);
     const film = result.rows[0];
     if (!film) {
@@ -78,6 +82,8 @@ app.put('/api/films/:filmId', async (req, res, next) => {
     next(err);
   }
 });
+
+app.use(errorMiddleware);
 
 app.listen(8080, () => {
   console.log('listening on port 8080');
