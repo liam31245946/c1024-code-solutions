@@ -39,6 +39,10 @@ app.get('/api/films/:filmId', async (req, res, next) => {
     `;
     const result = await db.query(sql);
     const films = result.rows[0];
+    if (!films) {
+      throw new ClientError(400, 'film is not found');
+    }
+
     res.json(films);
   } catch (err) {
     next(err);
