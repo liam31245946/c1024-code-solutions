@@ -7,13 +7,13 @@ app.use((req, res, next) => {
   next();
 });
 
-app.get('./', (req, res) => {
+app.get('/', (req, res) => {
   res.send('homepage');
 });
-app.get('./note', (req, res) => {
+app.get('/note', (req, res) => {
   res.send('notes');
 });
-app.post('./note:noteId', (req, res) => {
+app.post('/note/:noteId', (req, res) => {
   const { noteId } = req.params;
   res.send(`Note received ${noteId}`);
 });
