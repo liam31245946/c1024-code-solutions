@@ -143,3 +143,18 @@ app.use(errorMiddleware);
 app.listen(8000, () => {
   console.log('Listening on port 8000');
 });
+
+// limit error duplicate ( use it in the future)
+
+// function ValidateGradeId(gradeId: string):void{
+//   if (!Number.isInteger(+gradeId)) {
+//     throw new ClientError(400, 'gradeId needs to be a number');
+//   }
+// }
+
+// // replace if (!Number.isInteger(+gradeId)) {
+//       throw new ClientError(400, 'gradeId needs to be a number');
+//     } with
+// ValidateGradeID(gradeId)
+
+// do this in future with all error handling
