@@ -6,7 +6,12 @@ const app = express();
 
 app.use(express.json());
 
-const db = new pg.Pool();
+const db = new pg.Pool({
+  connectionString: 'postgres://dev:dev@localhost/pagila',
+  ssl: {
+    rejectUnauthorized: false,
+  },
+});
 
 // First GET
 app.get('/api/grades', async (req, res, next) => {
@@ -17,9 +22,6 @@ app.get('/api/grades', async (req, res, next) => {
     `;
     const result = await db.query(sql);
     const grades = result.rows;
-    if (!grades) {
-      return res.status(500).json({ error: 'Query failed' });
-    }
     res.status(200).json(grades);
   } catch (err) {
     next(err);
@@ -60,8 +62,8 @@ app.post('/api/grades', async (req, res, next) => {
     if (!course) {
       throw new ClientError(400, 'Course is missing');
     }
-    if (!score) {
-      throw new ClientError(400, 'Score is missing');
+    if (!Number.isInteger(+score)) {
+      throw new ClientError(400, 'score needs to be a number');
     }
     const sql = `
       insert into "grades" ("name", "course", "score")
@@ -104,7 +106,7 @@ app.put('/api/grades/:gradeId', async (req, res, next) => {
     const result = await db.query(sql, params);
     const updatedGrade = result.rows[0];
     if (!updatedGrade) {
-      return res.status(404).json({ error: 'Grade not found' });
+      throw new ClientError(404, 'grade not found');
     }
     res.status(200).json(updatedGrade);
   } catch (err) {
@@ -128,7 +130,7 @@ app.delete('/api/grades/:gradeId', async (req, res, next) => {
     const result = await db.query(sql, params);
     const deletedGrade = result.rows[0];
     if (!deletedGrade) {
-      return res.status(404).json({ error: 'Grade not found' });
+      throw new ClientError(404, 'grade not found');
     }
     res.status(204).json(deletedGrade);
   } catch (err) {
