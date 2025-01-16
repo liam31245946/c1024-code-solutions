@@ -3,6 +3,15 @@ import pg from 'pg';
 import express from 'express';
 import { ClientError, errorMiddleware } from './lib/index.js';
 
+export type Product = {
+  productId: number;
+  name: string;
+  imageUrl: string;
+  price: number;
+  shortDescription: string;
+  longDescription: string;
+};
+
 const db = new pg.Pool({
   connectionString: process.env.DATABASE_URL,
   ssl: {
@@ -20,7 +29,7 @@ app.get('/api/products', async (req, res, next) => {
         from "products"
         order by "productId"
     `;
-    const result = await db.query(sql);
+    const result = await db.query<Product>(sql);
     res.json(result.rows);
   } catch (err) {
     next(err);
@@ -39,10 +48,10 @@ app.get('/api/products/:productId', async (req, res, next) => {
       where "productId" = $1
     `;
     const params = [productId];
-    const result = await db.query(sql, params);
+    const result = await db.query<Product>(sql, params);
     const product = result.rows[0];
     if (!product) {
-      return res.status(404).json({ error: 'product not found' });
+      throw new ClientError(404, 'product is missing');
     }
     res.status(200).json(product);
   } catch (err) {
