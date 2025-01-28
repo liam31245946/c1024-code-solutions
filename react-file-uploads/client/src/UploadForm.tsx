@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars -- Remove me */
 import { type FormEvent, useState } from 'react';
 
 type Image = {
@@ -8,7 +7,10 @@ type Image = {
 };
 
 export function UploadForm() {
+  const [uploadedImage, setUploadedImage] = useState<Image>();
+
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
     /* Prevent the browser's default behavior for form submissions.
      * Create a `new` FormData object from the `event`.
      *
@@ -26,16 +28,20 @@ export function UploadForm() {
      * https://developer.mozilla.org/en-US/docs/Web/API/FormData/FormData
      * https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#uploading_a_file
      */
-    event.preventDefault();
-    const formData = new FormData(event.currentTarget);
-    const response = await fetch('/api/uploads', {
-      method: 'post',
-      body: formData,
-    });
-    if (!response.ok) {
-      throw new Error(`Upload failed with status: ${response.status}`);
+    try {
+      const formData = new FormData(event.currentTarget);
+      const response = await fetch('/api/uploads', {
+        method: 'POST',
+        body: formData,
+      });
+      if (!response.ok) {
+        throw new Error(`Upload failed with status: ${response.status}`);
+      }
+      const result = (await response.json()) as Image;
+      setUploadedImage(result);
+    } catch (err) {
+      alert('try catch error');
     }
-    const result = (await response.json()) as Image;
   }
 
   return (
@@ -55,6 +61,15 @@ export function UploadForm() {
         />
         <button type="submit">Upload</button>
       </form>
+      {uploadedImage && (
+        <div>
+          <h4>Uploaded Image</h4>
+          <figure>
+            <img src={uploadedImage.url} alt={uploadedImage.caption} />
+            <p>{uploadedImage.caption}</p>
+          </figure>
+        </div>
+      )}
     </div>
   );
 }

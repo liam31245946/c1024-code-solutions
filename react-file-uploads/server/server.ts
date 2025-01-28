@@ -41,7 +41,7 @@ app.post(
        * - respond with the inserted row data and the proper status code for inserting data
        */
 
-      const url = `/image/ ${req.file.filename}`;
+      const url = `/image/${req.file.filename}`;
 
       const sql = `
       insert into "images" ("url", "caption" )
